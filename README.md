@@ -13,10 +13,10 @@ It is fully commented and should be self explanatory.
 If you want to restore the defaults just delete the "config.yml" it will be recreated with the default values. 
 
 ##Commands##
-- island help
-- island create
-- island home
-- island add (player name)
-- island remove (player name)
-- island delete
-- island visit (player name)
+- /island help
+- /island create
+- /island home
+- /island add (player name)
+- /island remove (player name)
+- /island delete
+- /island visit (player name)
