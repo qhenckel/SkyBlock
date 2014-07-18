@@ -1,0 +1,6 @@
+main: io.github.qhenckel.skyBlock.SkyBlock
+author: Quinn Henckel
+version: 0.0
+description: Very Different Kind of Minecraft
+name: SkyBlock
+commands:
