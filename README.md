@@ -1,6 +1,7 @@
 Sky Block
 ========
 *Minecraft plug-in for Bukkit servers*
+***By: Quinn Henckel***
 
 ##Installation##
 1. Install dependencies.
