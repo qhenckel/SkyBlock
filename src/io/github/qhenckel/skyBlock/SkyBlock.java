@@ -1,5 +1,11 @@
 package io.github.qhenckel.skyBlock;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -12,10 +18,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class SkyBlock extends JavaPlugin{
 	
 	World sbWorld;
-	
+	HashMap<Player, Island> islands = new HashMap<Player, Island>();
 	
 	public void onEnable() {
 		this.saveDefaultConfig();
+		
+		//create or load skyblock world
 		String worldname = getConfig().getString("worldname");
 		World w = Bukkit.getWorld(worldname);
 		if(w == null) {
@@ -26,10 +34,39 @@ public class SkyBlock extends JavaPlugin{
 			w = wc.createWorld();
 		}
 		sbWorld = w;
+		
+		//Load player islands
+		File file = new File("owners.sb");
+		//StringBuilder contents = new StringBuilder();
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            String text = null;
+ 
+            // repeat until all lines is read
+            while ((text = reader.readLine()) != null) {
+            	String[] split = text.split(";");
+            	String name = split[0];
+            	String id = split[1];
+            	Player p = Bukkit.getPlayer(name);
+            	Island is = new Island(id);
+                islands.put(p, is);
+            }
+        } catch (IOException e) {
+            getLogger().warning("Error loading islands: " + e.getMessage());
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+            	 getLogger().warning("Error loading islands: " + e.getMessage());
+            }
+        }
 	}
 	
 	public void onDisable() {
-		
+		//TODO save islands
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
@@ -44,7 +81,7 @@ public class SkyBlock extends JavaPlugin{
 				}
 				
 				if(args[0].equalsIgnoreCase("create")) {
-					Island is = new Island(p, getNextFreeIsland());
+					Island is = new Island(getNextFreeIsland());
 					//TODO teleport player
 					return true;
 				}
@@ -80,8 +117,8 @@ public class SkyBlock extends JavaPlugin{
 		return false;
 	}
 
-	private Location getNextFreeIsland() {
-		// TODO Auto-generated method stub
+	private String getNextFreeIsland() {
+		//TODO return next id
 		return null;
 	}
 }

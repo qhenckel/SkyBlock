@@ -11,21 +11,47 @@ public class Island {
 	Location center;
 	ArrayList<Player> helpers;
 	Location spawn;
+	String id;
 	
-	Island(Player p, Location l) {
-		owner = p;
-		center = l;
-		helpers = new ArrayList<Player>();
+	Island(String i) {
+		id = i;
+		
+		//TODO If island exists
+		//TODO load island
+		//else
 		//TODO create an island
 		//TODO create island spawn
+		helpers = new ArrayList<Player>();
+		//owner = p;
+		//center = l;
 	}
 	
 	public Player getOwner() {
 		return owner;
 	}
 	
+	public void setOwner(Player p){
+		owner = p;
+		return;
+	}
+	
 	public Location getLocation() {
 		return center;
+	}
+	
+	public void setLocation(Location l) {
+		center = l;
+		return;
+	}
+	
+	public Location getSpawn() {
+		return spawn;
+	}
+	
+	public void setSpawn(Location s) {
+		//TODO add spawn validation
+		spawn = s;
+		return;
 	}
 	
 	public ArrayList<Player> getHelpers() {
@@ -33,7 +59,7 @@ public class Island {
 	}
 	
 	public boolean isHelper(Player p) {
-		return helpers.contains(p);
+		return helpers.contains(p.getName());
 	}
 	
 	public boolean addHelper(Player p) {
@@ -46,15 +72,6 @@ public class Island {
 		return helpers.remove(p);
 	}
 	
-	public Location getSpawn() {
-		return spawn;
-	}
-	
-	public void setSpawn(Location s) {
-		//TODO add spawn validation
-		spawn = s;
-		return;
-	}
 	//TODO add a save method
 	//TODO add a load method
 }
