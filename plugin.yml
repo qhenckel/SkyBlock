@@ -3,4 +3,12 @@ author: Quinn Henckel
 version: 0.0
 description: Very Different Kind of Minecraft
 name: SkyBlock
+depend: WorldEdit
+website: https://github.com/qhenckel/SkyBlock
 commands:
+   island:
+     description: Set yourself on fire.
+     usage: Syntax error! Type /island to get help
+   is:
+     description: Set yourself on fire.
+     usage: Syntax error! Type /island to get help
