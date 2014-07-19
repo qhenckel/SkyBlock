@@ -1,13 +1,17 @@
 Sky Block
 ========
-###Minecraft plug-in for Bukkit servers###
+*Minecraft plug-in for Bukkit servers*
 
 ##Installation##
-1. To install this plug-in just download the SkyBlock_VX-X_MCX-X-X.jar
-2. Put it in your servers "plugins" folder
-3. Reload or Restart your server
+1. Install dependencies.
+2. download the SkyBlock_VX-X_MCX-X-X.jar
+3. Put it in your server's "plugins" folder.
+4. Reload or Restart your server.
 
-##Setup##
+##Dependencies##
+- World Edit
+
+##Set up##
 After you have installed the plug-in you can change the "config.yml" in "plugins\SkyBlock"
 It is fully commented and should be self explanatory.
 If you want to restore the defaults just delete the "config.yml" it will be recreated with the default values. 
@@ -20,3 +24,8 @@ If you want to restore the defaults just delete the "config.yml" it will be recr
 - /island remove (player name)
 - /island delete
 - /island visit (player name)
+
+##List of Files that will be Created##
+- islands.sb
+- owners.sb
+- island.schem
