@@ -27,6 +27,7 @@ public class SBWorldGenerator  extends ChunkGenerator{
     @Override
     public byte[] generate(World world, Random rand, int chunkx, int chunkz) {
     	byte[] result = new byte[32768];
+    	//TODO rewrite maybe
 	   // int y = 0;
 	    //This will set the floor of each chunk at bedrock level to bedrock
 //	    for(int x=0; x<16; x++){
