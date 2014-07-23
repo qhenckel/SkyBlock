@@ -7,14 +7,17 @@ import org.bukkit.entity.Player;
 
 public class Island {
 	
-	Player owner;
-	Location center;
-	ArrayList<Player> helpers;
-	Location spawn;
-	String id;
+	private Player owner;
+	private Location center;
+	private ArrayList<Player> helpers;
+	private Location spawn;
+	private String id;
 	
 	Island(String i) {
 		id = i;
+		//TODO decide how to code the id
+		//ID = PLY:XYZ
+		//first three letters of owner location : XYZ
 		
 		//TODO If island exists
 		//TODO load island

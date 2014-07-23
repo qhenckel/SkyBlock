@@ -7,13 +7,14 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import com.sk89q.worldedit.WorldEdit;
 
 public class SkyBlock extends JavaPlugin{
 	
@@ -43,7 +44,7 @@ public class SkyBlock extends JavaPlugin{
             reader = new BufferedReader(new FileReader(file));
             String text = null;
  
-            // repeat until all lines is read
+            // repeat until all lines are read
             while ((text = reader.readLine()) != null) {
             	String[] split = text.split(";");
             	String name = split[0];
@@ -117,7 +118,7 @@ public class SkyBlock extends JavaPlugin{
 		return false;
 	}
 
-	private String getNextFreeIsland() {
+	String getNextFreeIsland() {
 		//TODO return next id
 		return null;
 	}
