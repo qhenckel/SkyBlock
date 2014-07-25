@@ -12,6 +12,7 @@ import org.bukkit.WorldCreator;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.sk89q.worldedit.WorldEdit;
@@ -23,6 +24,16 @@ public class SkyBlock extends JavaPlugin{
 	
 	public void onEnable() {
 		this.saveDefaultConfig();
+		String reqVer = "5.6.2";
+		String currVer = Bukkit.getPluginManager().getPlugin("WorldEdit").getDescription().getVersion();
+		if(currVer == reqVer && getConfig().getBoolean("checkDependVersions")) {
+			getLogger().info("Found a good version of WorldEdit: " + currVer);
+		} else {
+			getLogger().warning("Please use WorldEdit version: " + reqVer);
+			getLogger().warning("To override this check change the config file");
+			Bukkit.getPluginManager().disablePlugin(this);
+		}
+		
 		
 		//create or load skyblock world
 		String worldname = getConfig().getString("worldname");
@@ -113,7 +124,13 @@ public class SkyBlock extends JavaPlugin{
 				}
 			}
 		} else {
-			sender.sendMessage("You must be a player");
+			if(cmd.getName().equalsIgnoreCase("island")){
+				
+				if(args[0].equalsIgnoreCase("world")) {
+					//TODO 
+					return true;
+				}
+			}
 		}
 		return false;
 	}

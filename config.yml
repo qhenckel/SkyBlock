@@ -1,2 +1,9 @@
+# The name of the world the plugin should load on startup
+# If the world doesn't exist and empty world will be created
 worldname: SkyBlock
-schemname: island.schem
+# This is the name of a worldedit schematic file
+# You can make your own if you want. Just change the name here.
+schemname: island.schematic
+# The plugin will check if the dependencies are the correct version
+# You can disable this feature but it can cause problems
+checkDependVersions: true
